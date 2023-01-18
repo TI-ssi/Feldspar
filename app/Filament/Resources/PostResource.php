@@ -35,7 +35,7 @@ class PostResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\DateTimePicker::make('published_from'),
-                Forms\Components\DateTimePicker::make('published_to'),
+                Forms\Components\DateTimePicker::make('published_to')->after('published_from'),
                 Forms\Components\Toggle::make('published')
                     ->required(),
             ]);
