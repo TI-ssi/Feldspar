@@ -47,7 +47,7 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('author'),
+                Tables\Columns\TextColumn::make('author.name'),
                 Tables\Columns\TextColumn::make('published_from')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('published_to')

@@ -20,10 +20,10 @@ class Post extends Model
     ];
 
     /**
-     * Get the authoer of the post.
+     * Get the author of the post.
      */
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
