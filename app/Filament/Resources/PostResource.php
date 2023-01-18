@@ -19,12 +19,12 @@ class PostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $recordTitleAttribute = 'title';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')
-                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
@@ -45,10 +45,9 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id'),
                 Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('author'),
                 Tables\Columns\TextColumn::make('published_from')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('published_to')
@@ -74,7 +73,6 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
     
