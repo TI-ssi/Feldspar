@@ -18,4 +18,12 @@ class Post extends Model
         'published_to',
         'published'
     ];
+
+    /**
+     * Get the authoer of the post.
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
