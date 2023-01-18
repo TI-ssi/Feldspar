@@ -33,9 +33,12 @@ class PostResource extends Resource
                     ->maxLength(65535),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->alphaDash()
+                    ->unique(),
                 Forms\Components\DateTimePicker::make('published_from'),
-                Forms\Components\DateTimePicker::make('published_to')->after('published_from'),
+                Forms\Components\DateTimePicker::make('published_to')
+                    ->after('published_from'),
                 Forms\Components\Toggle::make('published')
                     ->required(),
             ]);
@@ -45,9 +48,11 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('title')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('author.name'),
+                Tables\Columns\TextColumn::make('author.name')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('published_from')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('published_to')
