@@ -21,7 +21,7 @@ class Controller extends BaseController
     public function index()
     {
         return view('welcome', [
-            'posts' => Post::published()->orderBy('published_from')->take(3)->get()
+            'posts' => Post::published()->orderBy('published_from', 'DESC')->take(3)->get()
         ]);
     }
 }
