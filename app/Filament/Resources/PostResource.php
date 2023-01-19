@@ -36,7 +36,8 @@ class PostResource extends Resource
                     ->maxLength(255)
                     ->alphaDash()
                     ->unique(),
-                Forms\Components\DateTimePicker::make('published_from'),
+                Forms\Components\DateTimePicker::make('published_from')
+                    ->required(),
                 Forms\Components\DateTimePicker::make('published_to')
                     ->after('published_from'),
                 Forms\Components\Toggle::make('published')
