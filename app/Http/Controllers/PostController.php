@@ -14,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('blogs', [
+            'posts' => Post::published()->orderBy('published_from')->paginate(5)
+        ]);
     }
 
     /**
@@ -44,9 +46,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($slug)
     {
-        return view('welcome');
+        return view('blog', [
+            'post' => Post::where('slug', $slug)->firstOrfail()
+        ]);
     }
 
     /**

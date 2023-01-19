@@ -32,7 +32,7 @@
 	    @yield('content')
 	</div>
 
-	<footer class="text-center text-bg-secondary position-fixed bottom-0 w-100 p-3">
+	<footer class="text-center text-bg-secondary sticky-bottom w-100 p-3">
 	    Felspar - {{ date('Y') }}
 	</footer>
 

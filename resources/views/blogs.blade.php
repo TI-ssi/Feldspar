@@ -2,10 +2,10 @@
 
 @section('content')
     @foreach($posts as $post)
-	@livewire('post.show', ['post' => $post])
+	@livewire('post.show', ['post' => $post, 'excerpt' => true])
     @endforeach
 
     <div class="d-grid gap-2">
-	<a href="{{ route('blog') }}" class="btn btn-primary">View more</a>
+	{{ $posts->links() }}
     </div>
 @endsection

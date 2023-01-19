@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Controller as BaseController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -20,6 +21,4 @@ Route::controller(PostController::class)->prefix('blog')->group(function(){
     Route::get('/{slug}','show');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/',  [BaseController::class, 'index'])->name('home');

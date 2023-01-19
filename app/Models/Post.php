@@ -26,4 +26,17 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    /** 
+     * Filter only published posts
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('published', 1)
+                     ->where('published_from', '<=', date('Y-m-d h:i:s'))
+                     ->where(function($query) {
+                         $query->where('published_to', '>=', date('Y-m-d h:i:s'))
+                               ->orWhere('published_to', null);
+                     });
+    }
 }
