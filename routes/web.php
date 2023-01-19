@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::controller(PostController::class)->prefix('blog')->group(function(){
+    Route::get('/', 'index')->name('blog');
+    Route::get('/{slug}','show');
+});
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
