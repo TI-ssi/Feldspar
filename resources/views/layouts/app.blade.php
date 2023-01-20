@@ -10,6 +10,8 @@
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+	@vite('resources/css/app.css')
+
     </head>
     <body>
 	<nav class="navbar navbar-expand-md bg-primary sticky-top " data-bs-theme="dark">
@@ -33,7 +35,7 @@
 	</div>
 
 	<footer class="text-center text-bg-secondary sticky-bottom w-100 p-3">
-	    Felspar - {{ date('Y') }}
+	    Feldspar - {{ date('Y') }}
 	</footer>
 
 	@livewireScripts
