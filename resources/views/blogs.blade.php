@@ -5,7 +5,7 @@
 	@livewire('post.show', ['post' => $post, 'excerpt' => true])
     @endforeach
 
-    <div class="d-grid gap-2">
+    <div class="d-grid gap-2 justify-content-center">
 	{{ $posts->links() }}
     </div>
 @endsection
