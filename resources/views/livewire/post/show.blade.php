@@ -9,6 +9,6 @@
 	    <h5 class="card-title">{{ $post->title }}</h5>
 	    <h6 class="card-subtitle mb-2 text-muted">{{ $post->author->name }} - {{ $post->published_from }}</h6>
 	@endif
-	<p class="card-text">{{ $excerpt && strlen($post->content) > 100 ? substr($post->content, 0, 100).'...' : $post->content }}</p>
+	<p class="card-text">{!! $excerpt && strlen($post->content) > 100 ? substr($post->content, 0, 100).'...' : $post->content !!}</p>
     </div>
 </div>

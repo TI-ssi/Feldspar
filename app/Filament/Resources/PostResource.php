@@ -33,7 +33,7 @@ class PostResource extends Resource
                     ->maxLength(255)
                     ->alphaDash()
                     ->unique(),
-                Forms\Components\Textarea::make('content')
+                Forms\Components\RichEditor::make('content')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpan(2),
