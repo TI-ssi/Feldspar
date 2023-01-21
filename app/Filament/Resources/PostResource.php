@@ -28,16 +28,18 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('content')
-                    ->required()
-                    ->maxLength(65535),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255)
                     ->alphaDash()
                     ->unique(),
+                Forms\Components\Textarea::make('content')
+                    ->required()
+                    ->maxLength(65535)
+                    ->columnSpan(2),
                 Forms\Components\DateTimePicker::make('published_from')
-                    ->required(),
+                    ->required()
+                    ->default(date('Y-m-d H:i:s')),
                 Forms\Components\DateTimePicker::make('published_to')
                     ->after('published_from'),
                 Forms\Components\Toggle::make('published')
