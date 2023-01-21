@@ -32,7 +32,7 @@ class PostResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->alphaDash()
-                    ->unique(),
+                    ->unique(ignorable: fn ($record) => $record),
                 Forms\Components\RichEditor::make('content')
                     ->required()
                     ->maxLength(65535)
@@ -91,5 +91,6 @@ class PostResource extends Resource
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
-    }    
+    }
+
 }
