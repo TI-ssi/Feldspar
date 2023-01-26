@@ -5,7 +5,7 @@
 	@livewire('post.show', ['post' => $post])
     @endforeach
 
-    <div class="d-grid gap-2">
-	<a href="{{ route('blog') }}" class="btn btn-primary">View more</a>
+    <div class="flex">
+	<a href="{{ route('blog') }}" class="p-1 w-full bg-blue-500 rounded text-center">View more</a>
     </div>
 @endsection

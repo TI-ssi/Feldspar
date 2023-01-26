@@ -1,3 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .pointer{
-    cursor:pointer;
+    cursor: pointer;
+}
+
+main{
+    margin-top: 4rem;
+    margin-bottom: 3rem;
 }

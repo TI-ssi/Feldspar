@@ -3,44 +3,31 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Feldspar @yield('title')</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
 	@livewireStyles
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-	@vite('resources/css/app.css')
+	
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body>
-	<nav class="navbar navbar-expand-md bg-primary sticky-top " data-bs-theme="dark">
-	    <div class="container-fluid">
-		<a class="navbar-brand" href="{{ route('home') }}">Feldspar</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-		    <ul class="navbar-nav">
-			<li class="nav-item">
-			    <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-			</li>
-		    </ul>
-		</div>
-	    </div>
-	</nav>
-	
-	<div class="container min-vh-100 py-3">
-	    @yield('content')
-	</div>
+    <body>	
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
+            <!-- Page Content -->
+            <main class="container mx-auto min-h-screen py-3">
+                {{ $slot ?? '' }}
+		@yield('content')
+            </main>
 
-	<footer class="text-center text-bg-secondary sticky-bottom w-100 p-3">
-	    Feldspar - {{ date('Y') }}
-	</footer>
+	    <footer class="text-center bg-gray-500 text-white w-100 p-3 fixed bottom-0 left-0 right-0 h-12">
+	        {{ config('app.name', 'Laravel') }} - {{ date('Y') }}
+	    </footer>
+	    
+    	    @livewireScripts
 
-	@livewireScripts
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+        </div>
     </body>
 </html>
